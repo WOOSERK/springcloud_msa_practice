@@ -22,7 +22,8 @@ public class FirstServiceController {
     Environment env;
 
     @Autowired
-    public FirstServiceController(Environment env) {
+    public FirstServiceController(Environment env)
+    {
         this.env = env;
     }
 
@@ -32,25 +33,17 @@ public class FirstServiceController {
     }
 
     @GetMapping("/message")
-    public String message(@RequestHeader("first-request") String header) {
+    public String message(@RequestHeader("first-request") String header)
+    {
         log.info(header);
         return "Hello World in First Service.";
     }
 
     @GetMapping("/check")
-    public String check(HttpServletRequest request) {
-        Enumeration<String> headers = request.getHeaderNames();
-        Collections.list(headers).stream().forEach(name -> {
-            Enumeration<String> values = request.getHeaders(name);
-            Collections.list(values).stream().forEach(value -> System.out.println(name + "=" + value));
-        });
-
+    public String check(HttpServletRequest request)
+    {
         log.info("Server port={}", request.getServerPort());
-
-        log.info("spring.cloud.client.hostname={}", env.getProperty("spring.cloud.client.hostname"));
-        log.info("spring.cloud.client.ip-address={}", env.getProperty("spring.cloud.client.ip-address"));
-
-        return String.format("Hi, there. This is a message from First Service on PORT %s"
+        return String.format("Hi, there. This is a message from Second Service on PORT %s"
                 , env.getProperty("local.server.port"));
     }
 }
