@@ -9,8 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="apigateway-service" />
         <module name="catalog-service" />
-        <module name="discoveryservice" />
         <module name="first-service" />
+        <module name="discoveryservice" />
         <module name="user-service" />
         <module name="order-service" />
         <module name="second-service" />
@@ -23,7 +23,6 @@
       <module name="first-service" target="11" />
       <module name="order-service" target="11" />
       <module name="second-service" target="11" />
-      <module name="springcloud_msa_practice" target="11" />
       <module name="user-service" target="11" />
     </bytecodeTargetLevel>
   </component>
